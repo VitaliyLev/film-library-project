@@ -1,0 +1,356 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  align-items: start;
+
+  @media screen and (max-width: 767px) {
+    padding: 20px 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+
+    @media screen and (max-height: 578px) {
+      align-items: start;
+    }
+  }
+}
+
+.modal::before {
+  position: fixed;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: var#f7f7f7;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.7;
+
+  @media screen and (max-width: 767px) {
+    margin-top: -20px;
+  }
+}
+
+.modal.is-hidden .modal-wrapper {
+  transform: scale(1.1);
+}
+
+.modal-wrapper {
+  position: relative;
+  padding: 48px 20px 40px 20px;
+  width: 100%;
+  border: 1px solid #000;
+
+  background-color: #fff;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 480px) {
+    width: 440px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    padding: 40px 72px 40px 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
+    padding: 40px 12px;
+  }
+}
+
+.modal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: #ff6b02;
+  }
+}
+
+.modal__icon {
+  right: 8px;
+  top: 8px;
+  font-size: 26px;
+  color: #000000;
+
+  &:hover,
+  &:focus {
+    color: #ff6b08;
+  }
+  margin: auto;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.trailer-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+
+  top: 8px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .image-wrapper:hover & {
+    transform: scale(1.3);
+  }
+}
+
+.film-details {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.film-details__wrapper {
+  @media screen and (min-width: 768px) {
+    width: 260px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 391px;
+  }
+}
+
+.film-details__image {
+  width: 440px;
+  height: auto;
+  min-height: 374px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  object-fit: cover;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    height: 374px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 375px;
+    height: 478px;
+  }
+}
+
+.film-details__title {
+  margin-bottom: 20px;
+
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.17;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 30px;
+  }
+}
+
+.film-details__list {
+  margin-bottom: 20px;
+}
+
+.film-details__item {
+  display: flex;
+  justify-content: null;
+  align-items: null;
+  margin-bottom: 8px;
+}
+
+.film-details__text {
+  width: 110px;
+  margin-right: 10px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8c8c8c;
+  flex-shrink: 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 152px;
+  }
+}
+
+.film-details__span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  &--accent {
+    width: 36px;
+    height: 16px;
+    margin-right: 2px;
+
+    background-color: #ff6b02;
+    color: #ffffff;
+    border-radius: 5px;
+  }
+
+  &--noaccent {
+    width: 36px;
+    height: 16px;
+    margin-left: 2px;
+
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+  }
+}
+
+.film-details__about {
+  margin-bottom: 8px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.film-details__overview {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  color: #000000;
+}
+
+.film-details-btn__list {
+  display: flex;
+  justify-content: center;
+  @media screen and(max-width:360px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 1280px) {
+    justify-content: flex-start;
+  }
+}
+.film-details-btn__item {
+  &:last-child {
+    @media screen and(min-width:361px) {
+      margin-left: 20px;
+    }
+    @media screen and(max-width:360px) {
+      margin-top: 10px;
+    }
+    @media screen and (min-width: 768px) {
+      margin-left: 0;
+    }
+    @media screen and (min-width: 1280px) {
+      margin-left: 15px;
+    }
+  }
+}
+.film-details-btn {
+  width: 130px;
+  min-height: 44px;
+  font-size: 12px;
+  font-weight: 1.33;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 1px solid #000000;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.active,
+  &:focus,
+  &:hover {
+    border-color: #ff6b02;
+    background-color: #ff6b02;
+    color: #ffffff;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  }
+  @media screen and(max-width:360px) {
+    width: 160px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+  }
+}
+
+// .iframe {
+//   height: 280px;
+
+//   @media screen and (min-width: 480px) {
+//     height: 320px;
+//     width: 590px;
+//   }
+
+//   @media screen and (min-width: 768px) {
+//     height: 330px;
+//     width: 600px;
+//   }
+
+//   @media screen and (min-width: 1280px) {
+//     height: 480px;
+//     width: 854px;
+//   }
+// }
+
+// backdrop
+.backdrop {
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: rgba(0, 0, 0, 0.25);
+
+  overflow-y: auto;
+}
