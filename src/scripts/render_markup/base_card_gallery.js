@@ -4,7 +4,7 @@ import { refs } from '../refs';
 export default function renderHtmlMurkup({ results }) {
     const markup = results
       .map(
-        ({ adult, id, title, backdrop_path, poster_path }) =>
+        ({ adult, id, title, backdrop_path, poster_path}) =>
         `<li class="gallery__item">
           <img
             class="gallery__item--img"
@@ -12,6 +12,7 @@ export default function renderHtmlMurkup({ results }) {
             alt=""
             loading="lazy"
             height=""
+            data-img-id="${id}"
           />
           <ul>
               <li><b>${title}</b></li>
