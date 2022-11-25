@@ -15,7 +15,6 @@ class ApiImagesSearchRequest {
     this.search = '';
     this.page = 1;
   }
-
   get searchValue() {
     return this.search;
   }
