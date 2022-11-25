@@ -1,5 +1,5 @@
 import axios from 'axios';
-import renderHtmlMurkup from '../render_markup/base_card_gallery'
+import renderHtmlMurkup from '../render_markup/base_card_gallery';
 
 const URL = 'https://api.themoviedb.org/3/';
 const MY_MOVIE_KEY = '388e7c1d810433186d944819803a330c';
@@ -7,7 +7,7 @@ const MY_MOVIE_KEY = '388e7c1d810433186d944819803a330c';
 const END_POINT_SEARCH = 'search/movie?';
 
 // const perPage = 20;
-class ApiImagesSearchRequest {
+export class ApiImagesSearchRequest {
   constructor() {
     this.url = URL;
     this.key = MY_MOVIE_KEY;
@@ -36,7 +36,6 @@ class ApiImagesSearchRequest {
       api_key: `${this.key}`,
       language: 'en-US',
       query: `${this.search}`,
-      query: 'cat',
       page: `${this.page}`,
       include_adult: false,
     });
@@ -57,11 +56,8 @@ class ApiImagesSearchRequest {
 
 const responseSearchApiImg = new ApiImagesSearchRequest();
 
-function renderSearchGallery() {
-    responseSearchApiImg
-    .getImagesSearchGallery()
-    .then(data => renderHtmlMurkup(data))
-    .catch(err => err.message);
+export function renderSearchGallery(data) {
+  renderHtmlMurkup(data);
 }
 
 // renderSearchGallery();

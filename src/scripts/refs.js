@@ -1,4 +1,5 @@
 export const refs = {
-    //приклад
+  //приклад
   galleryEl: document.querySelector('.gallery__list'),
+  formElem: document.querySelector('.js-search-form'),
 };
