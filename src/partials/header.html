@@ -6,19 +6,25 @@
         <span class="header__text-logo">Filmoteka </span>
       </button>
       <div class="wrapper">
-        <button class="js-home-btn header__btn header__home-btn">Home</button>
-        <!-- <a href="./library.html"> -->
-        <button class="js-lyb-btn header__btn header__lyb-btn">
-          My lybrary
+        <button class="header__home--current header__btn header__home-btn">
+          Home
         </button>
-      <!-- </a> -->
+        <!-- <a href="./library.html"> -->
+        <a href="./library.html" class="js-lyb-btn header__btn header__lyb-btn">
+          My lybrary
+        </a>
+
+        <!-- </a> -->
       </div>
     </div>
     <form class="js-search-form header_form is-hidden">
-      <label class="header__input-label"
-        >Movie search
-        <input class="header__input" type="text" name="searchQuery"
-      /></label>
+      <input
+        class="header__input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Movie search"
+      />
       <button class="header__btn header__search-btn"></button>
     </form>
   </div>
