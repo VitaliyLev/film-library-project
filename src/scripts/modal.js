@@ -1,9 +1,12 @@
-let modal = document.querySelector('.modal');
-let close = document.querySelector('.js-close-btn');
+import { refs } from './refs';
 
- close.addEventListener('click', function() {
-    modal.style.display = 'none';
- });
+refs.closeBtnModalEl.addEventListener('click', function () {
+  //  modal.style.display = 'none';
+
+  refs.wraperModalEl.classList.add('modal-hidden');
+  refs.modalEl.classList.add('modal-hidden');
+});
+
 //  close.addEventListener('click', function() {
 //     modal.style.display = 'none';
 // });
