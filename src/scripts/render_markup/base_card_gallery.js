@@ -21,5 +21,6 @@ export default function renderHtmlMurkup({ results }) {
       </li>`
       )
       .join('');
+      refs.galleryEl.innerHTML = '';
     refs.galleryEl.insertAdjacentHTML('beforeend', markup);
 }
