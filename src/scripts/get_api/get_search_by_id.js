@@ -50,7 +50,7 @@ function renderByIdGallery() {
     .getImagesTrendGallery()
     // .then(data => renderHtmlMurkup(data))
     .then(data => console.log(data))
-
+ 
     .catch(err => err.message);
 }
 
