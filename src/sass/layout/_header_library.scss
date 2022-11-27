@@ -164,7 +164,8 @@
     border: solid 1px #ff6b01;
   }
   &:hover,
-  &:focus {
+  &:focus,
+  &.btn-active {
     background-color: #ff6b01;
     border: solid 1px #ff6b01;
     box-shadow: 0 5px 42px rgba($color: #e67504, $alpha: 1);
