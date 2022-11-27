@@ -16,7 +16,7 @@ const searchAPI = new ApiImagesSearchRequest();
 
 async function handleFormSubmit(event) {
   event.preventDefault();
-  console.log('submit');
+  // console.log('submit');
   page = 1;
   query = event.target.elements.searchQuery.value.trim();
   if (query === '') {
@@ -26,7 +26,7 @@ async function handleFormSubmit(event) {
   const filmResponse = await searchAPI.getImagesSearchGallery();
   if (filmResponse.total_results)
     Notify.info(`Hooray!We found ${filmResponse.total_results} films`);
-  console.log(filmResponse);
+  // console.log(filmResponse);
   const container = document.getElementById('pagination');
         const paginationOptions = {
           totalItems: filmResponse.total_results,
@@ -56,10 +56,12 @@ async function handleFormSubmit(event) {
         const pagination = new Pagination(container, paginationOptions);
 
         pagination.on('beforeMove', e => {
-          page = e.page;
-
-          renderSearchGallery(filmResponse);
-          window.scrollTo({
+          searchAPI.setPageNumber(e.page);
+          refs.galleryEl.innerHTML = '';
+          searchAPI.getImagesSearchGallery()
+          .then (filmResponse=>renderSearchGallery(filmResponse))
+          .catch(()=>console.log("щось не так"))
+           window.scrollTo({
             top: 0,
             behavior: 'smooth',
           });
@@ -73,6 +75,6 @@ async function handleFormSubmit(event) {
     return;
   }
   renderSearchGallery(filmResponse);
-  // renderHtmlMurkup(filmResponse.hits);
+ // renderHtmlMurkup(filmResponse.hits);
 }
 refs.formElem.addEventListener('submit', handleFormSubmit);
