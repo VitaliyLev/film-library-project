@@ -6,7 +6,3 @@ refs.closeBtnModalEl.addEventListener('click', function () {
   refs.wraperModalEl.classList.add('modal-hidden');
   refs.modalEl.classList.add('modal-hidden');
 });
-
-//  close.addEventListener('click', function() {
-//     modal.style.display = 'none';
-// });
