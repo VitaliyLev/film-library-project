@@ -23,6 +23,10 @@ export class ApiImagesSearchRequest {
     return (this.search = value);
   }
 
+  setPageNumber(page) {
+    this.page = page;
+  }
+
   incrementPage() {
     this.page += 1;
   }

@@ -32,15 +32,12 @@ async function handleFormSubmit(event) {
   const filmResponse = await searchAPI.getImagesSearchGallery();
   if (filmResponse.total_results)
     Notify.info(`Hooray!We found ${filmResponse.total_results} films`);
-  console.log(filmResponse);
 
-  //======================================================
   storageAPI.save('watched', filmResponse.results);
   searchAPI.page = 2;
 
   const queue = await searchAPI.getImagesSearchGallery();
   storageAPI.save('queue', queue.results);
-  //======================================================
 
   const container = document.getElementById('pagination');
   const paginationOptions = {
@@ -73,12 +70,19 @@ async function handleFormSubmit(event) {
   pagination.on('beforeMove', e => {
     page = e.page;
 
-    renderSearchGallery(filmResponse);
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  });
+
+        pagination.on('beforeMove', e => {
+          searchAPI.setPageNumber(e.page);
+          refs.galleryEl.innerHTML = '';
+          searchAPI.getImagesSearchGallery()
+          .then (filmResponse=>renderSearchGallery(filmResponse))
+          .catch(()=>console.log("щось не так"))
+           window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        });
+  storageAPI.save('lyb', filmResponse.results);
 
   refs.galleryEl.innerHTML = '';
   if (filmResponse.results.length === 0) {
@@ -89,6 +93,6 @@ async function handleFormSubmit(event) {
     return;
   }
   renderSearchGallery(filmResponse);
-  // renderHtmlMurkup(filmResponse.hits);
+ // renderHtmlMurkup(filmResponse.hits);
 }
 refs.formElem.addEventListener('submit', handleFormSubmit);
