@@ -26,7 +26,7 @@ async function handleFormSubmit(event) {
   const filmResponse = await searchAPI.getImagesSearchGallery();
   if (filmResponse.total_results)
     Notify.info(`Hooray!We found ${filmResponse.total_results} films`);
-  // console.log(filmResponse);
+
   const container = document.getElementById('pagination');
         const paginationOptions = {
           totalItems: filmResponse.total_results,
