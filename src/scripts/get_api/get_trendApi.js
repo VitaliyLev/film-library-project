@@ -39,7 +39,6 @@ export function renderTrendGallery(page) {
     responseTrendApiImg
     .getImagesTrendGallery(page)
     .then(data => {renderHtmlMurkup(data);
-      console.log(data.total_pages, data.total_results);
     })
     // .then(data => console.log(data))
     
