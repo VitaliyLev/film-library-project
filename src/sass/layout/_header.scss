@@ -60,6 +60,7 @@
 }
 
 .header__btn {
+  display: inline-block;
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -126,7 +127,7 @@
   height: 4px;
   left: 0;
   bottom: 0;
-  transform: translateY(1px);
+  transform: translateY(3px);
   border-radius: 2px;
   background-color: #ff6b08;
 }
@@ -141,6 +142,10 @@
   @media screen and (min-width: 1280px) {
     margin-top: 9px;
     margin-right: 0px;
+  }
+  &:hover,
+  &:focus {
+    scale: 1.05;
   }
 }
 
