@@ -70,29 +70,30 @@ async function handleFormSubmit(event) {
   pagination.on('beforeMove', e => {
     page = e.page;
 
+    pagination.on('beforeMove', e => {
+      searchAPI.setPageNumber(e.page);
+      refs.galleryEl.innerHTML = '';
+      searchAPI
+        .getImagesSearchGallery()
+        .then(filmResponse => renderSearchGallery(filmResponse))
+        .catch(() => console.log('щось не так'));
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
+    storageAPI.save('lyb', filmResponse.results);
 
-        pagination.on('beforeMove', e => {
-          searchAPI.setPageNumber(e.page);
-          refs.galleryEl.innerHTML = '';
-          searchAPI.getImagesSearchGallery()
-          .then (filmResponse=>renderSearchGallery(filmResponse))
-          .catch(()=>console.log("щось не так"))
-           window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          });
-        });
-  storageAPI.save('lyb', filmResponse.results);
-
-  refs.galleryEl.innerHTML = '';
-  if (filmResponse.results.length === 0) {
-    renderTrendGallery(1);
-    Notify.failure(
-      'Sorry, there are no films matching your search query. Показаны популярные фильмы.'
-    );
-    return;
-  }
-  renderSearchGallery(filmResponse);
- // renderHtmlMurkup(filmResponse.hits);
+    refs.galleryEl.innerHTML = '';
+    if (filmResponse.results.length === 0) {
+      renderTrendGallery(1);
+      Notify.failure(
+        'Sorry, there are no films matching your search query. Показаны популярные фильмы.'
+      );
+      return;
+    }
+    renderSearchGallery(filmResponse);
+    // renderHtmlMurkup(filmResponse.hits);
+  });
 }
 refs.formElem.addEventListener('submit', handleFormSubmit);
