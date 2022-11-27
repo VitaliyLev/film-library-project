@@ -105,6 +105,10 @@
   }
   @media screen and (min-width: 1280px) {
   }
+  &:hover,
+  &:focus {
+    scale: 1.05;
+  }
 }
 .header__lyb-btn {
   position: relative;
@@ -130,7 +134,7 @@
   height: 4px;
   left: 0;
   bottom: 0;
-  transform: translateY(1px);
+  transform: translateY(3px);
   border-radius: 2px;
   background-color: #ff6b08;
 }
@@ -160,7 +164,8 @@
     border: solid 1px #ff6b01;
   }
   &:hover,
-  &:focus {
+  &:focus,
+  &.btn-active {
     background-color: #ff6b01;
     border: solid 1px #ff6b01;
     box-shadow: 0 5px 42px rgba($color: #e67504, $alpha: 1);
