@@ -1,4 +1,8 @@
 import { refs } from '../scripts/refs';
+import { CreatePagination } from './pagination';
+
+const createPagination = new CreatePagination();
+createPagination.renderTrendGallery(1);
 
 //приклад запиту зажанром
 // {

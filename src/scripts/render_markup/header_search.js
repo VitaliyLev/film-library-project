@@ -1,4 +1,6 @@
 import renderHtmlMurkup from './base_card_gallery';
+import Pagination from 'tui-pagination';
+import { renderTrendGallery } from '../get_api/get_trendApi';
 import { Notify } from 'notiflix';
 import {
   ApiImagesSearchRequest,
@@ -25,6 +27,43 @@ async function handleFormSubmit(event) {
   if (filmResponse.total_results)
     Notify.info(`Hooray!We found ${filmResponse.total_results} films`);
   console.log(filmResponse);
+  const container = document.getElementById('pagination');
+        const paginationOptions = {
+          totalItems: filmResponse.total_results,
+          itemsPerPage: 100,
+          visiblePages: 10,
+          centerAlign: true,
+          page: 1,
+          template: {
+            page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+            currentPage:
+              '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+            moveButton:
+              '<a href="#" class="tui-page-btn tui-{{type}} custom-class-{{type}}">' +
+              '<span class="tui-ico-{{type}}">☀</span>' +
+              '</a>',
+            disabledMoveButton:
+              '<span class="tui-page-btn tui-is-disabled tui-{{type}} custom-class-{{type}}">' +
+              '<span class="tui-ico-{{type}}">{{type}}</span>' +
+              '</span>',
+            moreButton:
+              '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip custom-class-{{type}}">' +
+              '<span class="tui-ico-ellip">...</span>' +
+              '</a>',
+          },
+        };
+
+        const pagination = new Pagination(container, paginationOptions);
+
+        pagination.on('beforeMove', e => {
+          page = e.page;
+
+          renderSearchGallery(filmResponse);
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        });
   storageAPI.save('lyb', filmResponse.results);
   refs.galleryEl.innerHTML = '';
   if (filmResponse.results.length === 0) {
