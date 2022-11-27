@@ -79,7 +79,6 @@ async function handleFormSubmit(event) {
       behavior: 'smooth',
     });
   });
-  storageAPI.save('lyb', filmResponse.results);
 
   refs.galleryEl.innerHTML = '';
   if (filmResponse.results.length === 0) {
