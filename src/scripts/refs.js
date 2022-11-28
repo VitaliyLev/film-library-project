@@ -7,7 +7,8 @@ export const refs = {
   filmDetailsWrapperEl: document.querySelector('.film-details__wrapper'),
   imageWrapperEl: document.querySelector('.image-wrapper'),
 
-  //кнопки модалки для локал сторедж 
+  //кнопки модалки для локал сторедж
   btnModalWatchedEl: document.querySelector('.js-btn-modal-watched'),
   btnModalQueueEl: document.querySelector('.js-btn-modal-queue'),
+  paginationContainer: document.getElementById('pagination'),
 };

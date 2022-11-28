@@ -1,5 +1,5 @@
 import axios from 'axios';
-import renderHtmlMurkup from '../render_markup/base_card_gallery';
+
 import storageAPI from '../storageAPI';
 
 const URL = 'https://api.themoviedb.org/3/';
@@ -41,19 +41,6 @@ export class ApiImagesTrendRequest {
     return response.data;
   }
 }
-
-const responseTrendApiImg = new ApiImagesTrendRequest();
-
-export function renderTrendGallery(page) {
-  responseTrendApiImg.getFilmGenres();
-  responseTrendApiImg
-    .getImagesTrendGallery(page)
-    .then(data => {
-      renderHtmlMurkup(data);
-    })
-    .catch(err => err.message);
-}
-renderTrendGallery();
 
 export function defineGenre(genresIds) {
   const genresList = storageAPI.load('genres');
