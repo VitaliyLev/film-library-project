@@ -3,13 +3,13 @@
   height: 230px;
   background-position: center;
   background-size: cover;
-
-  font-family: 'Roboto';
+  background-repeat: no-repeat;
+  font-family: $main-font;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 14px;
-  color: #ffffff;
+  line-height: 1.2;
+  color: $submain-white-color;
 }
 
 .header--search {
@@ -95,7 +95,7 @@
     text-align: center;
     margin-left: 8px;
     font-size: 30px;
-    line-height: 35px;
+    line-height: 1.16;
   }
   @media screen and (min-width: 1280px) {
     font-weight: 500;

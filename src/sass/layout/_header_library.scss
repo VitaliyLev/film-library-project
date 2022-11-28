@@ -117,16 +117,14 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-    margin-right: 33px;
+    // margin-right: 33px;
   }
   @media screen and (min-width: 1280px) {
     margin-top: 9px;
     margin-right: 0px;
   }
 }
-// .header__lyb--current {
-//   color: #ff6b08;
-// }
+
 .header__lyb--current::after {
   content: '';
   position: absolute;
