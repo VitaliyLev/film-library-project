@@ -4,17 +4,24 @@
 }
 
 .gallery__list {
+  padding-top: 20px;
+  padding-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
   gap: var(--indentTablet);
 
-  @media screen and (min-width: 1280px) {
-    gap: var(--indentDesk);
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
   }
 }
 
 .gallery__item {
   width: 100%;
+  border-radius: 5px;
+}
+
+.gallery__item--img {
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 767px) {
@@ -45,44 +52,57 @@
 }
 
 .gallery__item {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .gallery__item:hover {
   transform: scale(1.01);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.35), 0 15px 15px rgba(0,0,0,0.32)
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35), 0 15px 15px rgba(0, 0, 0, 0.32);
 }
 .gallery__item--list {
-  height: 48px;
-  @media screen and (min-width: 1280px) {
-    height: 48px;
+  padding-top: 10px;
+  padding-left: 3px;
+  font-size: 12px;
+  line-height: 1.33;
+  @media screen and (min-width: 767px) {
+    padding-left: 3px;
+    padding-top: 8px;
+    max-width: 330px;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-left: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    max-width: 390px;
+    font-size: 20px;
+    line-height: 24px;
   }
 }
 .gallery__item--title {
-margin: 10px 0 0 0;
-font-weight: 600;
-font-size: 12px;
-line-height: 1.33;
-max-width: 280px;
-@media screen and (min-width: 767px) {
-  max-width: 330px;
-}
-@media screen and (min-width: 1024px) {
-  max-width: 390px;
-  font-size: 20px;
-  line-height: 24px;
-}
+  font-size: 12px;
+  line-height: 1.33;
+  max-width: 280px;
+  text-transform: uppercase;
+  @media screen and (min-width: 767px) {
+    max-width: 330px;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 390px;
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 .gallery__item--description {
   display: flex;
   align-items: center;
+  color: rgba(255, 107, 8, 1);
 }
-.gallery__item--data {
-color: rgba(255, 107, 8, 1);
-margin: 0;
-font-size: 12px;
-font-weight: 600;
-line-height: 1.33;
-margin-right: 10px;
-}
+// .gallery__item--data {
+//   color: rgba(255, 107, 8, 1);
+//   margin: 0;
+//   font-size: 12px;
+//   font-weight: 600;
+//   line-height: 1.33;
+//   margin-right: 10px;
+// }

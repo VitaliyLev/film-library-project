@@ -35,14 +35,13 @@
 }
 
 .modal.is-hidden .modal-wrapper {
-  transform: scale(1.1);
+  // transform: scale(1.1);
 }
 
 .modal-wrapper {
   position: relative;
   padding: 48px 20px 40px 20px;
   width: 100%;
-  border: 1px solid #000;
 
   background-color: #fff;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -63,10 +62,6 @@
 
     min-height: 558px;
   }
-}
-
-.modal-hidden {
-  display: none;
 }
 
 .modal-btn {
@@ -356,10 +351,19 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  scale: 1;
+  opacity: 1;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   background-color: rgba(0, 0, 0, 0.25);
 
   overflow-y: auto;
+}
+
+.backdrop.modal-hidden {
+  scale: 0;
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }

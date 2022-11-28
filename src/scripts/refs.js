@@ -10,5 +10,7 @@ export const refs = {
   //кнопки модалки для локал сторедж
   btnModalWatchedEl: document.querySelector('.js-btn-modal-watched'),
   btnModalQueueEl: document.querySelector('.js-btn-modal-queue'),
+  btnAddWatchedEl: document.querySelector('.js-addWatched-btn'),
+  btnAddQueueEl: document.querySelector('.js-addQueue-btn'),
   paginationContainer: document.getElementById('pagination'),
 };

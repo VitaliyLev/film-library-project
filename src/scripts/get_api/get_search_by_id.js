@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { refs } from '../refs';
+import storageApi from '../storageAPI';
 
 const URL = 'https://api.themoviedb.org/3/';
 const MY_MOVIE_KEY = '388e7c1d810433186d944819803a330c';
@@ -120,8 +121,32 @@ function renderModalMarkup(data) {
   <p class="film-details__about lang-about">About</p>
   <p class="film-details__overview js-about">
     ${overview}
-  </p>`;
+  </p>
+  <div class="wrap-lyb-nav">
+          <button class="js-watched-btn header__lyb-nav-btn js-addWatched-btn" data-action="watched" data-id="${id}">
+            Add to watched
+          </button>
+          <button class="js-queue-btn header__lyb-nav-btn js-addQueue-btn" data-action="queue" data-id="${id}">
+            Add to queue
+          </button>
+        </div>`;
 
   refs.imageWrapperEl.insertAdjacentHTML('beforeend', markupImg);
   refs.filmDetailsWrapperEl.insertAdjacentHTML('beforeend', markDetails);
+  btnAddWatch = document.querySelector('.js-addWatched-btn');
+  btnAddQueue = document.querySelector('.js-addQueue-btn');
+  btnAddWatch.addEventListener('click', addToLyb);
+  btnAddQueue.addEventListener('click', addToLyb);
+  function addToLyb(e) {
+    const id = +e.target.dataset.id;
+    const action = e.target.dataset.action;
+    const lyb = storageApi.load(action) || [];
+    let isInLyb;
+    if (lyb.length) {
+      isInLyb = lyb.find(movie => movie.id === id);
+    }
+    if (isInLyb) return;
+    lyb.push(data);
+    storageApi.save(action, lyb);
+  }
 }
