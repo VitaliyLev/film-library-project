@@ -24,11 +24,13 @@ export default function renderHtmlMurkup({ results }) {
             height=""
             data-img-id="${id}"
           />
-          <ul>
-              <li><b>${title}</b></li>
-              <li class="gallery__item-genre">${genreName}</li>
-              <li>${release_date}</li>
-          </ul>
+          <div class="gallery__item--list">
+              <div class="gallery__item--title"><b>${title}</b></div>
+              <div class="gallery__item--description">
+              <div class="gallery__item--data gallery__item-genre">${genreName}</div>
+              <div class="gallery__item--data">${parseInt(release_date)}</div>
+              </div
+          </div>
       </li>`;
         return resultMarkup;
       }
