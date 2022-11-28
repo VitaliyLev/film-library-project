@@ -35,19 +35,19 @@ export class ApiImagesSearchRequest {
     this.page = 1;
   }
 
-  getOptionsSearch() {
+  getOptionsSearch(page, query) {
     const options = new URLSearchParams({
       api_key: `${this.key}`,
       language: 'en-US',
-      query: `${this.search}`,
-      page: `${this.page}`,
+      query,
+      page,
       include_adult: false,
     });
     return options;
   }
 
-  async getImagesSearchGallery() {
-    const option = this.getOptionsSearch();
+  async getImagesSearchGallery(page = 1, query) {
+    const option = this.getOptionsSearch(page, query);
     const response = await axios.get(`${URL}${END_POINT_SEARCH}${option}`);
 
     //базова силка(приклад)
