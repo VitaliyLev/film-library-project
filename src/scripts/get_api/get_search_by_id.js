@@ -84,7 +84,7 @@ function handleClickOnImgCard(e) {
 
 refs.galleryEl.addEventListener('click', handleClickOnImgCard);
 
-function renderModalMarkup(data) {
+export default function renderModalMarkup(data) {
   const {
     id,
     title,
@@ -145,6 +145,8 @@ function renderModalMarkup(data) {
           </button>
         </div>`;
 
+  refs.imageWrapperEl.innerHTML = '';
+  refs.filmDetailsWrapperEl.innerHTML = '';
   refs.imageWrapperEl.insertAdjacentHTML('beforeend', markupImg);
   refs.filmDetailsWrapperEl.insertAdjacentHTML('beforeend', markDetails);
   // btnAddWatch = document.querySelector('.js-addWatched-btn');
@@ -179,6 +181,15 @@ function updateLocalStorageList(key) {
     parsedIdList.add(searchId);
     localStorage.setItem(key, JSON.stringify([...parsedIdList]));
   }
+}
 
-  // метод delete (видаляє унікальн елем)
+function removeIdLocalStorage () {
+  const id = searchId;
+  const loadAddedList = localStorage.getItem(key) || [];
+  const newset = new Set (JSON.parse(loadAddedList));
+  newset.delete(id)
+
+    // if(btnQueue.classList.contains('btn-active')) {
+  //   return
+  // }
 }
