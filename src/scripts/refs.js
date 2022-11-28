@@ -7,6 +7,7 @@ export const refs = {
   filmDetailsWrapperEl: document.querySelector('.film-details__wrapper'),
   imageWrapperEl: document.querySelector('.image-wrapper'),
 
+  galleryLibraryListEl:document.querySelector('.gallery__library-list'),
   //кнопки модалки для локал сторедж
   btnModalWatchedEl: document.querySelector('.js-btn-modal-watched'),
   btnModalQueueEl: document.querySelector('.js-btn-modal-queue'),
