@@ -112,5 +112,3 @@ function renderHtmlMurkup(data) {
   refs.galleryLibraryListEl.insertAdjacentHTML('beforeend', mark);
   // refs.galleryLibraryListEl.insertAdjacentHTML('beforeend', markup);
 }
-
-

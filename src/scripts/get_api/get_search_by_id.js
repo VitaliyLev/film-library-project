@@ -147,28 +147,28 @@ function renderModalMarkup(data) {
 
   refs.imageWrapperEl.insertAdjacentHTML('beforeend', markupImg);
   refs.filmDetailsWrapperEl.insertAdjacentHTML('beforeend', markDetails);
-  btnAddWatch = document.querySelector('.js-addWatched-btn');
-  btnAddQueue = document.querySelector('.js-addQueue-btn');
-  btnAddWatch.addEventListener('click', addToLyb);
-  btnAddQueue.addEventListener('click', addToLyb);
-  function addToLyb(e) {
-    const id = +e.target.dataset.id;
-    const action = e.target.dataset.action;
-    const lyb = storageApi.load(action) || [];
-    let isInLyb;
-    if (lyb.length) {
-      isInLyb = lyb.find(movie => movie.id === id);
-    }
-    if (isInLyb) return;
-    lyb.push(data);
-    storageApi.save(action, lyb);
-  }
+  // btnAddWatch = document.querySelector('.js-addWatched-btn');
+  // btnAddQueue = document.querySelector('.js-addQueue-btn');
+  // btnAddWatch.addEventListener('click', addToLyb);
+  // btnAddQueue.addEventListener('click', addToLyb);
+  // function addToLyb(e) {
+  //   const id = +e.target.dataset.id;
+  //   const action = e.target.dataset.action;
+  //   const lyb = storageApi.load(action) || [];
+  //   let isInLyb;
+  //   if (lyb.length) {
+  //     isInLyb = lyb.find(movie => movie.id === id);
+  //   }
+  //   if (isInLyb) return;
+  //   lyb.push(data);
+  //   storageApi.save(action, lyb);
+  // }
 }
 
 function updateLocalStorageList(key) {
   const id = searchId;
   const loadAddedList = localStorage.getItem(key);
-  const parsedIdList = new Set (JSON.parse(loadAddedList));
+  const parsedIdList = new Set(JSON.parse(loadAddedList));
 
   if (!loadAddedList) {
     const watchSetting = [id];
