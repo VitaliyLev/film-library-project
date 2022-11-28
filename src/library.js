@@ -1,12 +1,15 @@
+import './scripts/modal';
 import storageAPI from './scripts/storageAPI';
 import { refs } from './scripts/refs';
 import axios from 'axios';
+import renderModalMarkup from './scripts/get_api/get_search_by_id'
 
 const btnWatched = document.querySelector('.js-watched-btn');
 const btnQueue = document.querySelector('.js-queue-btn');
 
 const LOCAL_STORAGE_WATCH_KEY = 'watch';
 const LOCAL_STORAGE_QUEUE_KEY = 'queue';
+// let searchId;
 
 const URL = 'https://api.themoviedb.org/3/';
 const MY_MOVIE_KEY = '388e7c1d810433186d944819803a330c';
@@ -24,93 +27,101 @@ async function getImagesTrendGallery(id) {
   return response.data;
 }
 
-let array = [];
-
-function renderByIdGallery(id) {
-  getImagesTrendGallery(id)
-    // .then(data => console.log(data))
-    .then(data => {
-      array = data;
-      // renderHtmlMurkup(data)
-    })
-    .catch(err => err.message);
+async function renderByIdGallery(array) {
+  const promises = await array.map(elem => getImagesTrendGallery(elem));
+  const result = await Promise.all(promises);
+  renderHtmlMurkup(result);
 }
 
 function handleWatchedBtnClick() {
+  const watched = storageAPI.load(LOCAL_STORAGE_WATCH_KEY) || [];
+  renderByIdGallery(watched);
   btnQueue.classList.remove('btn-active');
   btnWatched.classList.add('btn-active');
-  const watched = storageAPI.load(LOCAL_STORAGE_WATCH_KEY) || [];
 }
 
 function handleQueueBtnClick() {
+  // if(btnQueue.classList.contains('btn-active')) {
+  //   return
+  // }
+
   btnQueue.classList.add('btn-active');
   btnWatched.classList.remove('btn-active');
   const queue = storageAPI.load(LOCAL_STORAGE_QUEUE_KEY) || [];
-  getApiRequestById(queue);
-  console.log(array);
+  renderByIdGallery(queue);
 }
 
 btnWatched.addEventListener('click', handleWatchedBtnClick);
 btnQueue.addEventListener('click', handleQueueBtnClick);
 
-function getApiRequestById(array) {
-  const queue = storageAPI.load(LOCAL_STORAGE_QUEUE_KEY) || [];
-
-  // getImagesTrendGallery(505642);
-  // renderByIdGallery(505642);
-
-  for (let i = 0; i < array.length; i += 1) {
-    renderByIdGallery(array[i]);
-  }
-}
 function renderHtmlMurkup(data) {
-  const {
-    id,
-    title,
-    vote_average,
-    vote_count,
-    popularity,
-    original_title,
-    genres,
-    overview,
-    poster_path,
-  } = data;
-  const mark = `<li class="gallery__item">
-      <img
-        class="gallery__item--img"
-        src="https://image.tmdb.org/t/p/w500${poster_path}"
-        alt=""
-        loading="lazy"
-        height=""
-        data-img-id="${id}"
-      />
-      <ul>
-          <li><b>${title}</b></li>
-          <li>gerned | year</li>
-      </ul>
-  </li>`;
-  // const markup = data
-  //   .map(
-  //     ({ adult, id, title, backdrop_path, poster_path }) =>
-  //       `<li class="gallery__item">
-  //       <img
-  //         class="gallery__item--img"
-  //         src="https://image.tmdb.org/t/p/w500${poster_path}"
-  //         alt=""
-  //         loading="lazy"
-  //         height=""
-  //         data-img-id="${id}"
-  //       />
-  //       <ul>
-  //           <li><b>${title}</b></li>
-  //           <li>gerned | year</li>
-  //       </ul>
-  //   </li>`
-  //   )
-  //   .join('');
+  const markup = data
+    .map(
+      ({
+        adult,
+        id,
+        title,
+        backdrop_path,
+        genres,
+        poster_path,
+        release_date,
+      }) => {
+        const genr = genres.map(genr => genr.name);
+        const resultMarkup = `<li class="gallery__item">
+        <img
+          class="gallery__item--img"
+          src="https://image.tmdb.org/t/p/w500${poster_path}"
+          alt=""
+          loading="lazy"
+          height=""
+          data-img-id="${id}"
+        />
+        <div class="gallery__item--list">
+            <div class="gallery__item--title"><b>${title}</b></div>
+            <div class="gallery__item--description">
+            <div class="gallery__item--data gallery__item-genre">${genr}  |</div>
+            <div class="gallery__item--data">${parseInt(release_date)}</div>
+            </div
+        </div>
+    </li>`;
+        return resultMarkup;
+      }
+    )
+    .join('');
   refs.galleryLibraryListEl.innerHTML = '';
-  refs.galleryLibraryListEl.insertAdjacentHTML('beforeend', mark);
-  // refs.galleryLibraryListEl.insertAdjacentHTML('beforeend', markup);
+  refs.galleryLibraryListEl.insertAdjacentHTML('beforeend', markup);
 }
 
+//ллогіка для відкриття модалки
 
+function renderModalByIdGallery(id) {
+  getImagesTrendGallery(id)
+    .then(data => renderModalMarkup(data))
+    .catch(err => err.message);
+}
+
+function handleClickOnImgCard(e) {
+  e.preventDefault();
+
+  const handClick = e.target.nodeName;
+  if (handClick !== 'IMG') {
+    return;
+  }
+
+  const searchIdImg = e.target.dataset.imgId;
+  console.log(searchIdImg);
+
+  refs.wraperModalEl.classList.remove('modal-hidden');
+  refs.modalEl.classList.remove('modal-hidden');
+
+  refs.imageWrapperEl.innerHTML = '';
+  refs.filmDetailsWrapperEl.innerHTML = '';
+
+  renderModalByIdGallery(searchIdImg);
+}
+
+refs.galleryLibraryListEl.addEventListener('click', handleClickOnImgCard);
+
+//рендер початкової сторінки
+let watched = storageAPI.load(LOCAL_STORAGE_WATCH_KEY) || [];
+renderByIdGallery(watched);
