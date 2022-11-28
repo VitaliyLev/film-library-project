@@ -11,4 +11,6 @@ export const refs = {
   btnModalWatchedEl: document.querySelector('.js-btn-modal-watched'),
   btnModalQueueEl: document.querySelector('.js-btn-modal-queue'),
   paginationContainer: document.getElementById('pagination'),
+
+   upArrow: document.querySelector('.to-top-button'),
 };
