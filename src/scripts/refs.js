@@ -1,4 +1,5 @@
 export const refs = {
+  //приклад
   galleryEl: document.querySelector('.gallery__list'),
   formElem: document.querySelector('.js-search-form'),
   closeBtnModalEl: document.querySelector('.js-close-btn'),
@@ -11,4 +12,6 @@ export const refs = {
   btnModalWatchedEl: document.querySelector('.js-btn-modal-watched'),
   btnModalQueueEl: document.querySelector('.js-btn-modal-queue'),
   paginationContainer: document.getElementById('pagination'),
+
+  upArrow: document.querySelector('.to-top-button'),
 };
