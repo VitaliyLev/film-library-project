@@ -11,29 +11,77 @@
       </svg>
     </button>
     <article class="film-details">
-      <div class="image-wrapper"></div>
-      <div>
-        <div class="film-details__wrapper"></div>
-        <div>
-          <ul class="film-details-btn__list js-detail-btn">
-            <li class="film-details-btn__item">
-              <button
-                class="film-details-btn lang-addwatched js-btn-modal-watched"
-                type="button"
-              >
-                add to Watched
-              </button>
-            </li>
-            <li class="film-details-btn__item">
-              <button
-                class="film-details-btn lang-addqueue js-btn-modal-queue"
-                type="button"
-              >
-                add to queue
-              </button>
-            </li>
-          </ul>
-        </div>
+      <div class="image-wrapper">
+        <button
+          class="trailer-btn"
+          data-action="trailer"
+          type="button"
+          aria-label="Open trailer"
+        >
+          <svg class="trailer__icon icon" width="40" height="40">
+            <use href="./images/sprite.svg#icon-youtube"></use>
+          </svg>
+        </button>
+        <img class="film-details__image js-image" src="#" alt="#" />
+      </div>
+      <div class="film-details__wrapper">
+        <h2 class="film-details__title js-title">A FISTFUL OF LEAD</h2>
+        <ul class="film-details__list list">
+          <li class="film-details__item">
+            <p class="film-details__text lang-rating">Vote / Votes</p>
+            <span class="film-details__span film-details__span--accent js-vote"
+              >7.3</span
+            >
+            <span>/</span>
+            <span
+              class="film-details__span film-details__span--noaccent js-vote-count"
+              >1260</span
+            >
+          </li>
+          <li class="film-details__item">
+            <p class="film-details__text lang-popularity">Popularity</p>
+            <span class="film-details__span js-popularity">100.2</span>
+          </li>
+          <li class="film-details__item">
+            <p class="film-details__text lang-original">Original Title</p>
+            <span class="film-details__span js-title-orig"
+              >A FISTFUL OF LEAD</span
+            >
+          </li>
+          <li class="film-details__item">
+            <p class="film-details__text lang-genre">Genre</p>
+            <span class="film-details__span js-genres">Western</span>
+          </li>
+        </ul>
+        <p class="film-details__about lang-about">About</p>
+        <p class="film-details__overview js-about">
+          Four of the West’s most infamous outlaws assemble to steal a huge
+          stash of gold from the most corrupt settlement of the gold rush towns.
+          But not all goes to plan one is killed and the other three escapes
+          with bags of gold hide out in the abandoned gold mine where they
+          happen across another gang of three – who themselves were planning to
+          hit the very same bank! As tensions rise, things go from bad to worse
+          as they realise the bags of gold are filled with lead... they’ve been
+          double crossed – but by who and how?
+        </p>
+        <ul class="film-details-btn__list js-detail-btn">
+          <li class="film-details-btn__item">
+            <button
+              class="film-details-btn lang-addwatched js-btn-modal-watched"
+              type="button"
+            >
+              add to Watched
+            </button>
+          </li>
+          <li class="film-details-btn__item">
+            <button
+              class="film-details-btn lang-addqueue js-btn-modal-queue"
+              type="button"
+            >
+              add to queue
+            </button>
+          </li>
+        </ul>
       </div>
     </article>
   </div>
