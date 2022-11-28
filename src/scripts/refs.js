@@ -13,4 +13,6 @@ export const refs = {
   btnAddWatchedEl: document.querySelector('.js-addWatched-btn'),
   btnAddQueueEl: document.querySelector('.js-addQueue-btn'),
   paginationContainer: document.getElementById('pagination'),
+
+   upArrow: document.querySelector('.to-top-button'),
 };
