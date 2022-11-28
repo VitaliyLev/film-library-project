@@ -6,7 +6,7 @@ const URL = 'https://api.themoviedb.org/3/';
 const MY_MOVIE_KEY = '388e7c1d810433186d944819803a330c';
 const END_POINT_SEARCH_ID = 'movie/';
 
-class ApiImagesSearchByIdRequest {
+export default class ApiImagesSearchByIdRequest {
   constructor() {
     this.url = URL;
     this.key = MY_MOVIE_KEY;
@@ -44,11 +44,13 @@ const responseByIdApiImg = new ApiImagesSearchByIdRequest();
 function renderByIdGallery() {
   responseByIdApiImg
     .getImagesTrendGallery()
-    // .then(data => console.log(data))
     .then(data => renderModalMarkup(data))
-
     .catch(err => err.message);
 }
+
+const LOCAL_STORAGE_WATCH_KEY = 'watch';
+const LOCAL_STORAGE_QUEUE_KEY = 'queue';
+let searchId;
 
 function handleClickOnImgCard(e) {
   e.preventDefault();
@@ -59,6 +61,7 @@ function handleClickOnImgCard(e) {
   }
 
   responseByIdApiImg.idValue = e.target.dataset.imgId;
+  searchId = e.target.dataset.imgId;
 
   refs.wraperModalEl.classList.remove('modal-hidden');
   refs.modalEl.classList.remove('modal-hidden');
@@ -66,6 +69,17 @@ function handleClickOnImgCard(e) {
   refs.imageWrapperEl.innerHTML = '';
   refs.filmDetailsWrapperEl.innerHTML = '';
   renderByIdGallery();
+
+  function handleWatchClick() {
+    updateLocalStorageList(LOCAL_STORAGE_WATCH_KEY);
+  }
+
+  function handleQueueClick() {
+    updateLocalStorageList(LOCAL_STORAGE_QUEUE_KEY);
+  }
+
+  refs.btnModalWatchedEl.addEventListener('click', handleWatchClick);
+  refs.btnModalQueueEl.addEventListener('click', handleQueueClick);
 }
 
 refs.galleryEl.addEventListener('click', handleClickOnImgCard);
@@ -149,4 +163,22 @@ function renderModalMarkup(data) {
     lyb.push(data);
     storageApi.save(action, lyb);
   }
+}
+
+function updateLocalStorageList(key) {
+  const id = searchId;
+  const loadAddedList = localStorage.getItem(key);
+  const parsedIdList = new Set (JSON.parse(loadAddedList));
+
+  if (!loadAddedList) {
+    const watchSetting = [id];
+    localStorage.setItem(key, JSON.stringify(watchSetting));
+  }
+
+  if (loadAddedList) {
+    parsedIdList.add(searchId);
+    localStorage.setItem(key, JSON.stringify([...parsedIdList]));
+  }
+
+  // метод delete (видаляє унікальн елем)
 }
