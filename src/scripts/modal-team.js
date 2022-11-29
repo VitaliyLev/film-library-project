@@ -1,10 +1,9 @@
-
 const modal = document.querySelector(".team-modal");
 const btnClose = document.querySelector(".tm-close-btn");
 const btnOpen = document.querySelector(".footer-link");
 
 btnOpen.onclick = function() {
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
 btnClose.onclick = function() {
@@ -12,7 +11,7 @@ btnClose.onclick = function() {
 }
 
 window.onclick = function(event) {
-    if (event.target === modal) {
+    if (event.target === modal ) {
         modal.style.display = "none";
   }
 } 
