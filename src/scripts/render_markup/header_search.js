@@ -48,7 +48,7 @@ async function fullSearchedFilmsRequestRender(page, query) {
   );
   renderSearchedFilms(page, query);
   pagination2.on('beforeMove', e => {
-    console.log(e.page);
+    // console.log(e.page);
     const currentPage = e.page;
     renderSearchedFilms(currentPage, query);
     window.scrollTo({

@@ -22,7 +22,6 @@ async function getImagesTrendGallery(id) {
 function renderModalByIdGallery(id) {
   getImagesTrendGallery(id)
     .then(data => {
-      console.log(data);
       renderModalMarkup(data);
     })
     .catch(console.log);
@@ -41,7 +40,7 @@ function renderModalMarkup(data) {
     poster_path,
   } = data;
 
-  console.log('renderModalFoo');
+  // console.log('renderModalFoo');
 
   const genr = genres.map(genr => genr.name);
 
@@ -84,10 +83,10 @@ function renderModalMarkup(data) {
   </p>`;
   refs.wraperModalEl.classList.remove('modal-hidden');
   refs.modalEl.classList.remove('modal-hidden');
-  console.log(refs.imageWrapperEl);
+  // console.log(refs.imageWrapperEl);
   refs.imageWrapperEl.innerHTML = '';
   refs.filmDetailsWrapperEl.innerHTML = '';
-  console.log(refs.filmDetailsWrapperEl);
+  // console.log(refs.filmDetailsWrapperEl);
   refs.imageWrapperEl.insertAdjacentHTML('beforeend', markupImg);
   refs.filmDetailsWrapperEl.insertAdjacentHTML('beforeend', markDetails);
 }
@@ -245,7 +244,7 @@ function onClickSliderCard() {
   slidesList.addEventListener('click', ({ target }) => {
     const id = target.dataset.imgId;
     if (!id) return;
-    console.log(id);
+    // console.log(id);
     renderModalByIdGallery(id);
   });
 }
