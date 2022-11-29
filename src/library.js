@@ -1,4 +1,5 @@
 import './scripts/modal';
+import './scripts/buttons_themes';
 import storageAPI from './scripts/storageAPI';
 import { refs } from './scripts/refs';
 import axios from 'axios';
