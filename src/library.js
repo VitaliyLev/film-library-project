@@ -1,4 +1,5 @@
 import './scripts/modal';
+import './scripts/buttons_themes';
 import storageAPI from './scripts/storageAPI';
 import { refs } from './scripts/refs';
 import axios from 'axios';
@@ -27,28 +28,24 @@ async function getImagesTrendGallery(id) {
   return response.data;
 }
 
-async function renderByIdGallery(array) {
+async function renderByIdGalleryLibrary(array) {
   const promises = await array.map(elem => getImagesTrendGallery(elem));
   const result = await Promise.all(promises);
   renderHtmlMurkup(result);
 }
 
 function handleWatchedBtnClick() {
-  const watched = storageAPI.load(LOCAL_STORAGE_WATCH_KEY) || [];
-  renderByIdGallery(watched);
+  const watched = storageAPI.load(LOCAL_STORAGE_WATCH_KEY) || '[]';
+  renderByIdGalleryLibrary(watched);
   btnQueue.classList.remove('btn-active');
   btnWatched.classList.add('btn-active');
 }
 
 function handleQueueBtnClick() {
-  // if(btnQueue.classList.contains('btn-active')) {
-  //   return
-  // }
-
   btnQueue.classList.add('btn-active');
   btnWatched.classList.remove('btn-active');
-  const queue = storageAPI.load(LOCAL_STORAGE_QUEUE_KEY) || [];
-  renderByIdGallery(queue);
+  const queue = storageAPI.load(LOCAL_STORAGE_QUEUE_KEY) || '[]';
+  renderByIdGalleryLibrary(queue);
 }
 
 btnWatched.addEventListener('click', handleWatchedBtnClick);
@@ -91,7 +88,6 @@ function renderHtmlMurkup(data) {
 }
 
 //ллогіка для відкриття модалки
-
 function renderModalByIdGallery(id) {
   getImagesTrendGallery(id)
     .then(data => renderModalMarkup(data))
@@ -107,7 +103,6 @@ function handleClickOnImgCard(e) {
   }
 
   const searchIdImg = e.target.dataset.imgId;
-  console.log(searchIdImg);
 
   refs.wraperModalEl.classList.remove('modal-hidden');
   refs.modalEl.classList.remove('modal-hidden');
@@ -116,10 +111,23 @@ function handleClickOnImgCard(e) {
   refs.filmDetailsWrapperEl.innerHTML = '';
 
   renderModalByIdGallery(searchIdImg);
+
+  function handleWatchClick() {
+    let watched = storageAPI.load(LOCAL_STORAGE_WATCH_KEY) || '[]';
+    renderByIdGalleryLibrary(watched);
+  }
+
+  function handleQueueClick() {
+    const queue = storageAPI.load(LOCAL_STORAGE_QUEUE_KEY) || '[]';
+    renderByIdGalleryLibrary(queue);
+  }
+
+  refs.btnModalWatchedEl.addEventListener('click', handleWatchClick);
+  refs.btnModalQueueEl.addEventListener('click', handleQueueClick);
 }
 
 refs.galleryLibraryListEl.addEventListener('click', handleClickOnImgCard);
 
 //рендер початкової сторінки
-let watched = storageAPI.load(LOCAL_STORAGE_WATCH_KEY) || [];
-renderByIdGallery(watched);
+let watched = storageAPI.load(LOCAL_STORAGE_WATCH_KEY) || '[]';
+renderByIdGalleryLibrary(watched);

@@ -1,6 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" prefix="og: http://ogp.me/ns#">
   <head>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The best movies in the world in one place" />
+    <meta
+      property="og:url"
+      content="https://voloshynvolodymyr.github.io/Oh-my-donats/"
+    >
+    <meta
+      property="og:description"
+      content="We love the best movies.
+      We spend time with our best friends.
+      We dream of a world without Russians.
+      Is it not bad?"
+    >
+    <meta
+      property="og:image"
+      content="https://www.bodo.ua/resize/upload/files/cm-experience/105/104204/images_file/all_all_big-t1608041917-r1w768h425q90zc1.jpg;"
+    >
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
@@ -9,12 +27,15 @@
   <body>
     <include src="./partials/header.html"></include>
     <!-- <include src="./partials/header_library.html"></include> -->
+    <include src="./partials/buttons_themes.html"></include>
     <include src="./partials/gallery.html"></include>
     <include src="./partials/pagination.html"></include>
     <include src="./partials/footer.html"></include>
     <include src="./partials/modal.html"></include>
     <include src="./partials/btnUp.html"></include>
+    <include src="./partials/modal-team.html"></include>
 
+    <link rel="shortcut icon" href="./images/favicon.png" />
     <script type="module" src="./index.js"></script>
     <script
       type="module"
