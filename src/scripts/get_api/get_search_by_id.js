@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { refs } from '../refs';
 import storageApi from '../storageAPI';
+import { Notify } from 'notiflix';
 
 const URL = 'https://api.themoviedb.org/3/';
 const MY_MOVIE_KEY = '388e7c1d810433186d944819803a330c';
@@ -70,12 +71,32 @@ function handleClickOnImgCard(e) {
   refs.filmDetailsWrapperEl.innerHTML = '';
   renderByIdGallery();
 
+  overviewLocalStorageOnIdContains();
+
   function handleWatchClick() {
     updateLocalStorageList(LOCAL_STORAGE_WATCH_KEY);
+
+    overviewLocalStorageOnIdContains();
+    // if(refs.btnModalWatchedEl.classList.contains('active-btn-watch')){
+    //   Notify.failure(
+    //     'The movie has been removed from the library.'
+    //     );
+    // }else {
+    //     Notify.success('The movie has been added to the library.');
+    // }
   }
 
   function handleQueueClick() {
     updateLocalStorageList(LOCAL_STORAGE_QUEUE_KEY);
+
+    overviewLocalStorageOnIdContains();
+    // if(refs.btnModalQueueEl.classList.contains('active-btn-queue')){
+    //   Notify.failure(
+    //     'The movie has been removed from the queue.'
+    //     );
+    // }else {
+    //     Notify.success('The movie has been added to the queue.');
+    // }
   }
 
   refs.btnModalWatchedEl.addEventListener('click', handleWatchClick);
@@ -154,18 +175,39 @@ function updateLocalStorageList(key) {
   }
 
   if (loadAddedList) {
-    parsedIdList.add(searchId);
+    if(!parsedIdList.has(id))
+      parsedIdList.add(searchId)
+    else 
+      parsedIdList.delete(searchId) 
     localStorage.setItem(key, JSON.stringify([...parsedIdList]));
   }
 }
 
-function removeIdLocalStorage () {
-  const id = searchId;
-  const loadAddedList = localStorage.getItem(key) || [];
-  const newset = new Set (JSON.parse(loadAddedList));
-  newset.delete(id)
+  function overviewLocalStorageOnIdContains () {
+    const keyW = LOCAL_STORAGE_WATCH_KEY;
+    const keyQ = LOCAL_STORAGE_QUEUE_KEY;
+    const id = searchId;
 
-    // if(btnQueue.classList.contains('btn-active')) {
-  //   return
-  // }
-}
+    const loadAddedListW = localStorage.getItem(keyW) || '[]';
+    const parsedIdListW = new Set (JSON.parse(loadAddedListW));
+  
+    const loadAddedListQ = localStorage.getItem(keyQ) || '[]';
+    const parsedIdListQ = new Set (JSON.parse(loadAddedListQ));
+  
+    if(parsedIdListW.has(id)) {
+      refs.btnModalWatchedEl.textContent = 'remove from watch';
+      // refs.btnModalWatchedEl.classList.remove('active-btn-watch');
+    }else{
+      refs.btnModalWatchedEl.textContent = 'add to watch';
+      // refs.btnModalWatchedEl.classList.add('active-btn-watch');
+    }
+  
+    if(parsedIdListQ.has(id)) {
+      refs.btnModalQueueEl.textContent = 'remove from queue';
+      // refs.btnModalQueueEl.classList.remove('active-btn-queue');
+  
+    }else {
+      refs.btnModalQueueEl.textContent = 'add to queue';
+      // refs.btnModalQueueEl.classList.add('active-btn-queue');
+    }
+  }
