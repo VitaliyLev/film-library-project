@@ -1,8 +1,6 @@
 import { refs } from './refs';
 
 refs.closeBtnModalEl.addEventListener('click', function () {
-  //  modal.style.display = 'none';
-
   refs.wraperModalEl.classList.add('modal-hidden');
   refs.modalEl.classList.add('modal-hidden');
 });
@@ -11,6 +9,8 @@ function clearEventListeners() {
     window.removeEventListener('click', closeModalByClick);
     window.removeEventListener('keydown', closeModalByEsc);   
     refs.closeBtnModalEl.removeEventListener('click', closeModal);
+
+    console.log('hello');
   }
 
 
@@ -28,19 +28,3 @@ function clearEventListeners() {
     }
   }
 
-
-
-
-
-// function handleKeyPress(e) {
-//   console.log(e.key);
-//   if (e.key === 'Escape') {
-//     closeModal();
-//   }
-// }
-
-// function handleClickOnBackdrop(e) {
-//   if (e.target === modal) {
-//     closeModal();
-//   }
-// }
