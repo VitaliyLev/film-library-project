@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
 
-  align-items: start;
+  // align-items: start;
 
   @media screen and (max-width: 767px) {
     padding: 20px 20px;
@@ -42,9 +42,10 @@
   position: relative;
   padding: 48px 20px 40px 20px;
   width: 100%;
-  border: 1px solid #000;
-
-  background-color: #fff;
+  border-radius: 30px;
+  // border: 2px solid $accent-color;
+  box-shadow: rgba(255, 107, 8, 0.5) 0px 5px 15px;
+  background-color: $submain-white-color;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 480px) {
@@ -59,7 +60,7 @@
 
   @media screen and (min-width: 1280px) {
     width: 806px;
-    padding: 40px 12px;
+    padding: 40px 10px;
 
     min-height: 558px;
   }
@@ -86,7 +87,7 @@
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: #ff6b02;
+    color: $accent-color;
   }
 }
 
@@ -94,11 +95,11 @@
   right: 8px;
   top: 8px;
   font-size: 26px;
-  color: #000000;
+  color: $main-black-color;
 
   &:hover,
   &:focus {
-    color: #ff6b08;
+    color: $accent-color;
   }
   margin: auto;
 }
@@ -133,7 +134,6 @@
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: center;
-    align-items: center;
     align-items: flex-start;
     justify-content: space-between;
   }
@@ -153,7 +153,7 @@
   width: 440px;
   height: auto;
   min-height: 374px;
-  border-radius: 5px;
+  border-radius: 30px;
   flex-shrink: 0;
   object-fit: cover;
 
@@ -174,7 +174,7 @@
 
 .film-details__title {
   margin-bottom: 20px;
-
+  font-family: $main-font;
   font-weight: 500;
   font-style: normal;
   font-size: 20px;
@@ -192,15 +192,15 @@
 
 .film-details__item {
   display: flex;
-  justify-content: null;
-  align-items: null;
+  justify-content: start;
+  align-items: center;
   margin-bottom: 8px;
 }
 
 .film-details__text {
   width: 110px;
   margin-right: 10px;
-
+  font-family: $main-font;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -220,7 +220,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  font-family: $main-font;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -230,8 +230,8 @@
     height: 16px;
     margin-right: 2px;
 
-    background-color: #ff6b02;
-    color: #ffffff;
+    background-color: $accent-color;
+    color: $submain-white-color;
     border-radius: 5px;
   }
 
@@ -240,33 +240,35 @@
     height: 16px;
     margin-left: 2px;
 
-    background-color: #ffffff;
-    color: #000000;
+    background-color: $submain-white-color;
+    color: $main-black-color;
     border-radius: 5px;
   }
 }
 
 .film-details__about {
   margin-bottom: 8px;
-
+  font-family: $main-font;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
-  color: #000000;
+  color: $main-black-color;
 }
 
 .film-details__overview {
   margin-bottom: 20px;
-  font-weight: 500;
+  font-family: $main-font;
+  font-weight: 400;
   font-size: 12px;
   line-height: 1.67;
-  color: #000000;
+  color: $main-black-color;
 }
 
 .film-details-btn__list {
   display: flex;
   justify-content: center;
+
   @media screen and(max-width:360px) {
     flex-direction: column;
     align-items: center;
@@ -297,15 +299,18 @@
 .film-details-btn {
   width: 130px;
   min-height: 44px;
+  font-family: $main-font;
   font-size: 12px;
-  font-weight: 1.33;
+  font-weight: 500;
   text-align: center;
   text-transform: uppercase;
   border-radius: 5px;
-  color: #000000;
-  background-color: #ffffff;
+  // color: $main-black-color;
+  color: $highlight-color;
+  background-color: $submain-white-color;
   cursor: pointer;
-  border: 1px solid #000000;
+  // border: 1px solid $main-black-color;
+  border: 1px solid $highlight-color;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -313,9 +318,9 @@
   &.active,
   &:focus,
   &:hover {
-    border-color: #ff6b02;
-    background-color: #ff6b02;
-    color: #ffffff;
+    border-color: $accent-color;
+    background-color: $accent-color;
+    color: $submain-white-color;
     box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
   }
   @media screen and(max-width:360px) {
@@ -363,4 +368,3 @@
 
   overflow-y: auto;
 }
-

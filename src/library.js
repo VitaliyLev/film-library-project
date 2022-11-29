@@ -2,7 +2,7 @@ import './scripts/modal';
 import storageAPI from './scripts/storageAPI';
 import { refs } from './scripts/refs';
 import axios from 'axios';
-import renderModalMarkup from './scripts/get_api/get_search_by_id'
+import renderModalMarkup from './scripts/get_api/get_search_by_id';
 
 const btnWatched = document.querySelector('.js-watched-btn');
 const btnQueue = document.querySelector('.js-queue-btn');
@@ -66,7 +66,7 @@ function renderHtmlMurkup(data) {
         poster_path,
         release_date,
       }) => {
-        const genr = genres.map(genr => genr.name);
+        const genr = genres.map(genr => genr.name).join(', ');
         const resultMarkup = `<li class="gallery__item">
         <img
           class="gallery__item--img"
@@ -76,13 +76,11 @@ function renderHtmlMurkup(data) {
           height=""
           data-img-id="${id}"
         />
+        <div class="gallery__item--data">${parseInt(release_date)}</div>
         <div class="gallery__item--list">
             <div class="gallery__item--title"><b>${title}</b></div>
-            <div class="gallery__item--description">
-            <div class="gallery__item--data gallery__item-genre">${genr}  |</div>
-            <div class="gallery__item--data">${parseInt(release_date)}</div>
-            </div
-        </div>
+            <div class="gallery__item-genre">${genr}</div>
+            </div>
     </li>`;
         return resultMarkup;
       }

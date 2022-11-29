@@ -6,7 +6,7 @@ import renderHtmlMurkup from './render_markup/base_card_gallery';
 // options for pagination settings
 const paginationOptions = {
   totalItems: 0,
-  itemsPerPage: 21,
+  itemsPerPage: 20,
   visiblePages: 10,
   centerAlign: true,
   page: 1,
