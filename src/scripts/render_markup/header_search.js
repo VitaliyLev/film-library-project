@@ -64,7 +64,7 @@ async function renderSearchedFilms(page, query) {
     .then(data => {
       if (!data.total_results) {
         Notify.failure(
-          'Sorry, there are no films matching your search query. Показаны популярные фильмы.'
+          'Sorry, there are no films matching your search query.Popular films shown.'
         );
         renderTrendGallery(1);
         return;

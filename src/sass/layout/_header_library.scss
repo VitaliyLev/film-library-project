@@ -73,6 +73,7 @@
   }
   &:hover {
     scale: 1.05;
+    animation: Glow 0.5s ease infinite alternate;
   }
 }
 .header__text-logo {
