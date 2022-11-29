@@ -49,11 +49,6 @@ export class ApiImagesSearchRequest {
   async getImagesSearchGallery(page = 1, query) {
     const option = this.getOptionsSearch(page, query);
     const response = await axios.get(`${URL}${END_POINT_SEARCH}${option}`);
-
-    //базова силка(приклад)
-    // const response = await axios.get(
-    //   `https://api.themoviedb.org/3/search/movie?api_key=388e7c1d810433186d944819803a330c&language=en-US&query=${this.search}&page=1&include_adult=false`
-    // );
     return response.data;
   }
 }
@@ -63,5 +58,3 @@ const responseSearchApiImg = new ApiImagesSearchRequest();
 export function renderSearchGallery(data) {
   renderHtmlMurkup(data);
 }
-
-// renderSearchGallery();

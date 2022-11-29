@@ -33,11 +33,6 @@ export class ApiImagesTrendRequest {
     const response = await axios.get(
       `${URL}${END_POINT_TREND_GALLERY}${option}`
     );
-
-    //базова силка(приклад)
-    // const response = await axios.get(
-    //   'https://api.themoviedb.org/3/trending/movie/day?api_key=388e7c1d810433186d944819803a330c'
-    // );
     return response.data;
   }
 }
