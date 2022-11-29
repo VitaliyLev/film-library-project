@@ -6,3 +6,5 @@ import './scripts/gallery';
 import './scripts/modal';
 import './scripts/btnUp';
 import './scripts/buttons_themes';
+import './scripts/modal-team';
+
