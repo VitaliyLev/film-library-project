@@ -77,6 +77,7 @@
   display: inline-block;
   width: 24px;
   height: 24px;
+  color: $accent-color;
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.82 2H4.18C2.97602 2 2 2.97602 2 4.18V19.82C2 21.024 2.97602 22 4.18 22H19.82C21.024 22 22 21.024 22 19.82V4.18C22 2.97602 21.024 2 19.82 2Z' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7 2V22' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17 2V22' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 12H22' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 7H7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 17H7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17 17H22' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17 7H22' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
   @media screen and (min-width: 768px) {
     width: 24px;
@@ -85,13 +86,15 @@
   @media screen and (min-width: 1280px) {
   }
   &:hover {
-    animation: Glow 0.5s ease infinite alternate;
+    // animation: Glow 0.5s ease infinite alternate;
     scale: 1.05;
   }
 }
 .header__text-logo {
   display: none;
   @media screen and (min-width: 768px) {
+    font-style: normal;
+    font-weight: 500;
     display: inline-block;
     text-align: center;
     margin-left: 8px;
@@ -119,7 +122,7 @@
   }
 }
 .header__home--current {
-  color: #ff6b08;
+  color: $accent-color;
 }
 .header__home--current::after {
   content: '';
@@ -130,7 +133,7 @@
   bottom: 0;
   transform: translateY(3px);
   border-radius: 2px;
-  background-color: #ff6b08;
+  background-color: $accent-color;
 }
 .header__lyb-btn {
   white-space: nowrap;
@@ -173,7 +176,7 @@
   line-height: 1.14;
   display: flex;
   align-items: center;
-  color: #ffffff;
+  color: $submain-white-color;
   position: absolute;
   top: 0;
   left: 0;
