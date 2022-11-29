@@ -2,6 +2,7 @@ import { refs } from './refs';
 import Pagination from 'tui-pagination';
 import { ApiImagesTrendRequest } from './get_api/get_trendApi';
 import renderHtmlMurkup from './render_markup/base_card_gallery';
+import { renderGlide } from './glide';
 
 // options for pagination settings
 const paginationOptions = {
@@ -39,9 +40,10 @@ export async function renderTrendGallery(page) {
   const renderFilms = await apiService
     .getImagesTrendGallery(page)
     .then(data => {
+      renderGlide(data.results);
       renderHtmlMurkup(data);
     })
-    .catch(err => err.message);
+    .catch(console.log);
 }
 
 //basic function which get number of pages and renderHtmlMurkup

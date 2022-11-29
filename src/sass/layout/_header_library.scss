@@ -73,6 +73,7 @@
   }
   &:hover {
     scale: 1.05;
+    // animation: Glow 0.5s ease infinite alternate;
   }
 }
 .header__text-logo {
@@ -85,7 +86,7 @@
     line-height: 35px;
     font-style: normal;
     font-weight: 500;
-    color: #ffffff;
+    color: $submain-white-color;
   }
   @media screen and (min-width: 1280px) {
     font-weight: 500;
@@ -134,7 +135,7 @@
   bottom: 0;
   transform: translateY(3px);
   border-radius: 2px;
-  background-color: #ff6b08;
+  background-color: $accent-color;
 }
 .header__lyb-nav-btn {
   font-weight: 500;
