@@ -5,6 +5,19 @@
 
   // align-items: start;
 
+  animation-name: animate;
+  animation-duration: 0.5s;
+  @keyframes animate {
+    from {
+      top: -320px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
   @media screen and (max-width: 767px) {
     padding: 20px 20px;
   }
