@@ -6,7 +6,7 @@
   align-items: start;
 
   animation-name: animate;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
   @keyframes animate {
     from {
       top: -320px;
@@ -175,6 +175,7 @@
   .tm-header-container {
     margin-top: 0px;
     margin-bottom: 10px;
+
     @media screen and (min-width: 320px) {
       margin-bottom: 15px;
     }
