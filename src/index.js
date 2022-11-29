@@ -5,3 +5,4 @@ import './scripts/get_api/get_search_by_id';
 import './scripts/gallery';
 import './scripts/modal';
 import './scripts/btnUp';
+import './scripts/modal-team';
