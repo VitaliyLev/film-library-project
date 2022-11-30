@@ -21,3 +21,4 @@ export const refs = {
   screen: document.querySelector('body'),
   footer: document.querySelector('.footer'),
 };
+
