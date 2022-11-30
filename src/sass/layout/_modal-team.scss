@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   display: none;
-  align-items: start;
+  // align-items: start;
 
   animation-name: animate;
   animation-duration: 0.3s;
@@ -18,31 +18,31 @@
     }
   }
 
-  @media screen and (max-width: 388px) {
-    align-items: start;
-    display: flex;
-  }
+  // @media screen and (max-width: 388px) {
+  //   align-items: start;
+  //   display: flex;
+  // }
 
   @media screen and (min-width: 320px) {
     padding: 0;
-    @media screen and (max-height: 352px) {
-      align-items: start;
-      display: flex;
-    }
+    // @media screen and (max-height: 352px) {
+    //   align-items: start;
+    //   display: flex;
+    // }
   }
 
-  @media screen and (min-width: 768px) {
-    @media screen and (max-height: 358px) {
-      align-items: start;
-      display: flex;
-    }
-  }
-  @media screen and (min-width: 1280px) {
-    @media screen and (max-height: 480px) {
-      align-items: start;
-      display: flex;
-    }
-  }
+  // @media screen and (min-width: 768px) {
+  //   @media screen and (max-height: 358px) {
+  //     align-items: start;
+  //     display: flex;
+  //   }
+  // }
+  // @media screen and (min-width: 1280px) {
+  //   @media screen and (max-height: 480px) {
+  //     align-items: start;
+  //     display: flex;
+  //   }
+  // }
 }
 
 .pouring {

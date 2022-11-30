@@ -1,5 +1,4 @@
 import { refs } from './refs';
-
 window.addEventListener('scroll', HideElementOnScroll);
 refs.upArrow.addEventListener('click', ScrollToTop);
 
