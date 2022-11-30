@@ -2,10 +2,10 @@
   "name": "film-library-project",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://goitacademy.github.io/film-library-project",
+  "homepage": "https://vitaliylev.github.io/film-library-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /film-library-project/"
+    "build": "parcel build src/index.html --public-url /film-library-project/"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,5 @@
     "parcel": "^2.8.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
-  },
-  "browserslist": "> 0.5%, last 2 versions, not dead"
+  }
 }
