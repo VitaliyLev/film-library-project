@@ -14,6 +14,9 @@ export default function renderHtmlMurkup({ results }) {
         poster_path,
         release_date,
       }) => {
+        if (!poster_path) {
+          return;
+        }
         const genreName = defineGenre(genre_ids);
         const resultMarkup = `<li class="gallery__item">
           <img
