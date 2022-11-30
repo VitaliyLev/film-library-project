@@ -1,6 +1,6 @@
 .button_change_theme--container {
   position: absolute;
-  top: 22.5%;
+  bottom: -5%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75px;
@@ -22,16 +22,12 @@
   background-image: url('https://cdn-icons-png.flaticon.com/512/3073/3073665.png');
   width: 30px;
   height: 30px;
-  top: 175px;
-  //   right: 51%;
 }
 
 .button_dark_theme {
   background-image: url('https://cdn-icons-png.flaticon.com/512/7269/7269735.png');
   width: 30px;
   height: 30px;
-  top: 175px;
-  //   right: 48%;
 }
 
 .dark_theme {

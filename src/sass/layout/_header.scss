@@ -39,17 +39,17 @@
 }
 
 .header__container {
+  position: relative;
   padding-top: 40px;
   padding-bottom: 92px;
   @media screen and (min-width: 768px) {
     width: 768px;
     height: 216px;
-    padding-bottom: 95px;
-    padding-bottom: 81px;
+    padding-bottom: 45px;
   }
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
   }
 }
 
