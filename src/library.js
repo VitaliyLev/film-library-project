@@ -89,7 +89,6 @@ function renderHtmlMurkup(data) {
 
 //ллогіка для відкриття модалки
 function renderModalByIdGallery(id) {
-  debugger;
   getImagesTrendGallery(id)
     .then(data => renderModalMarkup(data))
     .catch(err => err.message);
