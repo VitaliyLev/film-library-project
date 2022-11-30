@@ -1,0 +1,76 @@
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.footer {
+  background-color: #f7f7f7;
+}
+
+.footer-container {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100px;
+
+  @media screen and (min-width: 768px) {
+    height: 79px;
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 77px;
+  }
+}
+
+.footer-text {
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0;
+
+  color: #545454;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.33;
+  }
+}
+
+.ft-part-one {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    margin-right: 3px;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+}
+
+.ft-part-two {
+  display: flex;
+  @media screen and (min-width: 768px) {
+    align-items: center;
+  }
+}
+
+.icon-heart {
+  animation: spin 3000ms infinite;
+  fill: #ff6b02;
+}
+
+.footer-link {
+  text-decoration: underline;
+  color: currentColor;
+  &:hover {
+    cursor: pointer;
+  }
+}

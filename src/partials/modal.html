@@ -1,0 +1,40 @@
+<div class="modal backdrop js-backdrop is-hidden modal-hidden">
+  <div class="modal-wrapper modal-hidden">
+    <button
+      data-action="close-modal"
+      class="modal-btn"
+      type="button"
+      aria-label="Close modal"
+    >
+      <svg class="modal__icon icon js-close-btn" width="30" height="30">
+        <use href="./images/sprite.svg#icon-close-modal"></use>
+      </svg>
+    </button>
+    <article class="film-details">
+      <div class="image-wrapper"></div>
+      <div>
+        <div class="film-details__wrapper"></div>
+        <div>
+          <ul class="film-details-btn__list js-detail-btn">
+            <li class="film-details-btn__item">
+              <button
+                class="film-details-btn lang-addwatched js-btn-modal-watched"
+                type="button"
+              >
+                add to Watched
+              </button>
+            </li>
+            <li class="film-details-btn__item">
+              <button
+                class="film-details-btn lang-addqueue js-btn-modal-queue"
+                type="button"
+              >
+                add to queue
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
