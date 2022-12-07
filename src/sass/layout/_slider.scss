@@ -1,5 +1,18 @@
 ///slider
+.glide__arrow {
+  outline: none;
+  box-shadow: none;
+  border-radius: 50%;
+  padding: 4px 7px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
+.glide__arrow--left {
+  left: 3px;
+}
+.glide__arrow--right {
+  right: 3px;
+}
 .slide__title {
   margin-top: 25px;
 

@@ -41,7 +41,8 @@
 .modal-wrapper {
   position: relative;
   padding: 48px 20px 40px 20px;
-  width: 100%;
+  width: 95%;
+  top: 10%;
   border-radius: 30px;
   // border: 2px solid $accent-color;
   box-shadow: rgba(255, 107, 8, 0.5) 0px 5px 15px;
@@ -63,6 +64,8 @@
 
   @media screen and (min-width: 480px) {
     width: 440px;
+    margin-top: 0px;
+    top: 0%;
   }
 
   @media screen and (min-width: 768px) {
